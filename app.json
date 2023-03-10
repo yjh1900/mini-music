@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/my/my",
+    "pages/community/community",
+    "pages/podcast/podcast",
+    "pages/follow/follow"
+  ],
+  "window": {
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "网易云音乐",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#b5b5b5",
+    "selectedColor":"#ff3838",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "发现",
+      "iconPath":"static/images/tabs/discover.png",
+      "selectedIconPath":"static/images/tabs/discover_selected.png"
+    }, {
+      "pagePath": "pages/podcast/podcast",
+      "text": "播客",
+      "iconPath":"static/images/tabs/podcast.png",
+      "selectedIconPath":"static/images/tabs/podcast_selected.png"
+    },{
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath":"static/images/tabs/my.png",
+      "selectedIconPath":"static/images/tabs/my_selected.png"
+    },{
+      "pagePath": "pages/follow/follow",
+      "text": "关注",
+      "iconPath":"static/images/tabs/follow.png",
+      "selectedIconPath":"static/images/tabs/follow_selected.png"
+    },{
+      "pagePath": "pages/community/community",
+      "text": "社区",
+      "iconPath":"static/images/tabs/community.png",
+      "selectedIconPath":"static/images/tabs/community_selected.png"
+    }]
+  }
+}

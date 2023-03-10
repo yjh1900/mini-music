@@ -1,0 +1,82 @@
+<!--pages/home/home.wxml-->
+<view>
+
+<swiper indicator-dots autoplay="true"circular="true"	 indicator-active-color="#ff3838" class="home_swiper"	interval="1000">
+<swiper-item  class="home_swiper-item"> 
+<image class="home_swiper-img" src="/static/images/imgs/Arrone_ZH-CN2794175618_1920x1080.jpg"></image>
+</swiper-item>
+
+<swiper-item  class="home_swiper-item"> 
+<image class="home_swiper-img" src="/static/images/imgs/CelebratingSurfing_ZH-CN9747833506_1920x1080.jpg"></image>
+</swiper-item>
+</swiper>
+</view>
+
+<scroll-view scroll-x class="nav-container" enable-flex>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-tuijian"></text>
+    </view>
+    <text class="nav-text">每日推荐</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-radio"></text>
+    </view>
+    <text class="nav-text">私人FM</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-librarymusic"></text>
+    </view>
+    <text class="nav-text">歌单</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-bar"></text>
+    </view>
+    <text class="nav-text">排行榜</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-book"></text>
+    </view>
+    <text class="nav-text">有声书</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-zhuanji"></text>
+    </view>
+    <text class="nav-text">数字专辑</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-live"></text>
+    </view>
+    <text class="nav-text">直播</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-kefu"></text>
+    </view>
+    <text class="nav-text">关注新歌</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-xingxing"></text>
+    </view>
+    <text class="nav-text">歌房</text>
+  </view>
+  <view class="nav-item"> 
+    <view class="nav-icon-wrap">
+      <text class="iconfont icon-game"></text>
+    </view>
+    <text class="nav-text">游戏专区</text>
+  </view>
+</scroll-view>
+
+<view style="width: 80rpx">
+  <text style="width: 80rpx;overflow: hidden;">
+  推荐歌单1561315846148465135184efwewqfewfewfewfefe
+  </text>
+</view>

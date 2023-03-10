@@ -1,0 +1,51 @@
+/* pages/home/home.wxss */
+.home_swiper{
+}
+.home_swiper-item{
+  width: 100%;
+  height: 300rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.home_swiper-img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+/* .nav-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-icon-wrap{
+  height: 75rpx;
+  width: 75rpx;
+} */
+
+/* 导航栏 */
+.nav-container {
+  display: flex;
+  text-align: center;
+  margin-top: 10px;
+  height: 90rpx;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-icon-wrap {
+  width: 140rpx;
+}
+
+.nav-icon-wrap .iconfont {
+  font-size: 50rpx;
+  color:  #ff383b;
+}
+
+.nav-text {
+  font-size: 25rpx;
+  color:#aaa
+}

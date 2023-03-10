@@ -1,0 +1,171 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3743762 */
+  src: url('/static/font/iconfont.woff2?t=1667471853176') format('woff2'),
+       url('/static/font/iconfont.woff?t=1667471853176') format('woff'),
+       url('/static/font/iconfont.ttf?t=1667471853176') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-play-filling:before {
+  content: "\e87e";
+}
+
+.icon-thumbsUp:before {
+  content: "\eb32";
+}
+
+.icon-close:before {
+  content: "\e97d";
+}
+
+.icon-plus:before {
+  content: "\e890";
+}
+
+.icon-search:before {
+  content: "\eace";
+}
+
+.icon-arrow-left:before {
+  content: "\eb6a";
+}
+
+.icon-arrow-up:before {
+  content: "\eb6b";
+}
+
+.icon-arrow-right:before {
+  content: "\eb6c";
+}
+
+.icon-share:before {
+  content: "\e99c";
+}
+
+.icon-arrow-down:before {
+  content: "\eb69";
+}
+
+.icon-next:before {
+  content: "\ea6b";
+}
+
+.icon-pause:before {
+  content: "\ea6d";
+}
+
+.icon-play:before {
+  content: "\ea6e";
+}
+
+.icon-playlist-music:before {
+  content: "\ea6f";
+}
+
+.icon-previous:before {
+  content: "\ea73";
+}
+
+.icon-shuffle:before {
+  content: "\ea75";
+}
+
+.icon-repeat:before {
+  content: "\ea76";
+}
+
+.icon-repeatOnce:before {
+  content: "\ea77";
+}
+
+.icon-playlist:before {
+  content: "\ea86";
+}
+
+.icon-xiugai:before {
+  content: "\e8cf";
+}
+
+.icon-upload:before {
+  content: "\e7da";
+}
+
+.icon-yonghu:before {
+  content: "\e610";
+}
+
+.icon-shopping:before {
+  content: "\ea8b";
+}
+
+.icon-bofang:before {
+  content: "\e87c";
+}
+
+.icon-bofangshu:before {
+  content: "\e665";
+}
+
+.icon-shuaxin:before {
+  content: "\e620";
+}
+
+.icon-radio1:before {
+  content: "\e688";
+}
+
+.icon-folder-music:before {
+  content: "\e784";
+}
+
+.icon-radio:before {
+  content: "\ecc3";
+}
+
+.icon-librarymusic:before {
+  content: "\e925";
+}
+
+.icon-kefu:before {
+  content: "\e65e";
+}
+
+.icon-game:before {
+  content: "\e640";
+}
+
+.icon-xingxing:before {
+  content: "\e61d";
+}
+
+.icon-live:before {
+  content: "\e69b";
+}
+
+.icon-more:before {
+  content: "\e8c4";
+}
+
+.icon-zhuanji:before {
+  content: "\e60a";
+}
+
+.icon-tuijian:before {
+  content: "\e879";
+}
+
+.icon-bar:before {
+  content: "\e93d";
+}
+
+.icon-book:before {
+  content: "\e634";
+}
+
