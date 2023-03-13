@@ -1,0 +1,52 @@
+/* pages/login/login-prepare/login-prepare.wxss */
+.login-prepare{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.login-btn{
+  margin-top: 400rpx;
+  margin-bottom: 50rpx;
+  border: none;
+  background-color: #dd2d1e;
+  color: #fff;
+  line-height: 100rpx;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1rpx;
+  border-radius: 50rpx;
+}
+
+.login-btn:active{
+  opacity: 0.8;
+}
+
+.login-btn-text{
+  font-size: 10px;
+  background-color: #e56e61;
+  border-radius: 24rpx;
+  padding: 5rpx 8rpx;
+  margin-left: 10rpx;
+}
+
+.login-clause-wrap{
+  width: 75%;
+  margin: 0 auto;
+}
+/* 要修改checkbox样式，要用特殊方式 */
+.login-checkbox .wx-checkbox-input {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 15rpx;
+}
+
+.login-clause-text{
+  font-size: 13px;
+  color:#d0d0d0;
+}
+
+.login-clause{
+  color: #758aad;
+}

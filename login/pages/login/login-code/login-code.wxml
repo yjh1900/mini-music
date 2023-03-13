@@ -1,0 +1,10 @@
+<!--pages/login/login-code/login-code.wxml-->
+<view class="login-phone">
+  <view class="login-title">登录体验更多精彩</view>
+  <view class="login-tip">
+    <view>
+      已发送至+86<text class="login-tip-phone">12312341234</text><text class="iconfont icon-xiugai"></text>
+    </view>
+    <text class="send-code">重新发送</text>
+  </view>
+</view>

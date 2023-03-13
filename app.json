@@ -4,7 +4,19 @@
     "pages/my/my",
     "pages/community/community",
     "pages/podcast/podcast",
-    "pages/follow/follow"
+    "pages/follow/follow",
+    "pages/daily-recommendation/daily-recommendation"
+  ],
+  "subPackages": [
+    {
+      "root": "login",
+      "pages": [
+        "pages/login/login-phone/login-phone",
+        "pages/login/login-prepare/login-prepare",
+        "pages/login/login-code/login-code"
+      ],
+      "independent": true
+    }
   ],
   "window": {
     "backgroundTextStyle":"dark",

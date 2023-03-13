@@ -1,2 +1,47 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="my">
+  <view class="my-container user-container">
+    <!-- <image src="xxx" class="user-avatar"/> -->
+    <view class="user-icon-wrap user-avatar">
+      <text wx:if="{{!isLogin}}" class="iconfont icon-yonghu"></text>
+      <image wx:else="{{isLogin}}" src="{{avatarUrl}}" class="user-image"/> 
+    </view>
+    <!-- <text class="user-login">xxx</text> -->
+    <text class="user-login" bindtap="toLoginPrepare">{{loginName}}<text class="iconfont icon-arrow-right"></text></text>
+  </view>
+
+  <view class="my-container my-list-container">
+    <view class="my-item" bindtap="testUser">
+      <text class="iconfont icon-play"></text>
+      <text class="my-text">最近播放</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-librarymusic"></text>
+      <text class="my-text">本地/下载</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-upload"></text>
+      <text class="my-text">云盘</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-shopping"></text>
+      <text class="my-text">已购</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-yonghu"></text>
+      <text class="my-text">我的好友</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-xingxing"></text>
+      <text class="my-text">收藏和赞</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-radio1"></text>
+      <text class="my-text">我的播客</text>
+    </view>
+    <view class="my-item">
+      <text class="iconfont icon-folder-music"></text>
+      <text class="my-text">音乐罐子</text>
+    </view>
+  </view>
+</view>

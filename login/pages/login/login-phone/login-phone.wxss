@@ -1,0 +1,50 @@
+/* pages/login/login-phone/login-phone.wxss */
+.login-phone{
+  padding: 20rpx;
+}
+
+.login-title{
+  margin-top: 80rpx;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.login-tip{
+  font-size: 12px;
+  margin-top: 10rpx;
+  color: #9f9f9f;
+}
+
+.login-phone-wrap{
+  margin-top: 80rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.phone-wrap{
+  display: flex;
+}
+
+.phone-prefix{
+  font-weight: 500;
+  margin-right: 20rpx;
+}
+
+.login-phone-wrap .icon-close{
+  color: #9f9f9f;
+}
+
+.login-btn{
+  margin-top: 100rpx;
+  color: #fff;
+  background-color: #dd2d1e;
+  border-radius: 50rpx;
+  font-weight: 500;
+}
+
+.login-btn:active{
+  opacity: 0.8;
+}

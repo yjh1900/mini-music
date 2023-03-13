@@ -1,0 +1,11 @@
+<!--pages/login/login-prepare/login-prepare.wxml-->
+<view class="login-prepare">
+  <button class="login-btn" bindtap="login" style="width: 80%;height: 100rpx;"><text>扫码登录</text><text class="login-btn-text">推荐</text></button>
+  <view class="login-clause-wrap">
+    <checkbox class="login-checkbox" color="#d0d0d0"/> 
+    <text class="login-clause-text">我已阅读并同意 <text class="login-clause">《服务条款》</text>、<text class="login-clause">《隐私条款》</text></text>
+  </view>
+  <view>
+    <image src="{{codeImg}}" mode="aspectFit"></image>
+  </view>
+</view> 

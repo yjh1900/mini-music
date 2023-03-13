@@ -1,0 +1,38 @@
+<!--pages/daily-recommendation/daily-recommendation.wxml-->
+<view class="daily">
+  <view class="daily-header">
+    <view class="daily-header-wrap">
+      <text class="iconfont icon-play-filling"></text>
+      <text class="daily-header-title">播放全部</text>
+    </view>
+    <text class="iconfont icon-playlist"></text>
+  </view>
+
+  <scroll-view scroll-y scroll-show-scrollbar="{{false}}" enhanced class="daily-songs-container">
+    <view wx:for="{{recommendSongList}}" wx:key="index" class="daily-songs-item">
+      <view class="daily-songs-wrap">
+        <view class="daily-songs-img-wrap">
+          <image src="{{item.al.picUrl}}" class="daily-songs-img"/>
+          <!-- <text class="iconfont icon-bar"></text> -->
+        </view>
+        <view class="daily-text-wrap">
+          <text class="daily-name">{{item.name}}<text class="daily-name-pre">xxx</text></text>
+          <text class="daily-author">{{item.ar[0].name}}-{{item.al.name}}</text>
+        </view>
+      </view>
+      <text class="iconfont icon-more"></text>
+    </view>
+    <!-- <view class="daily-songs-item">
+      <view class="daily-songs-wrap">
+        <view class="daily-songs-img-wrap">
+          <text class="iconfont icon-bar"></text>
+        </view>
+        <view class="daily-text-wrap">
+          <text class="daily-name">xxx<text class="daily-name-pre">(xxx)</text></text>
+          <text class="daily-author">xxx</text>
+        </view>
+      </view>
+      <text class="iconfont icon-more"></text>
+    </view> -->
+  </scroll-view>
+</view>

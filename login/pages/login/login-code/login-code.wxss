@@ -1,0 +1,31 @@
+/* pages/login/login-code/login-code.wxss */
+.login-phone{
+  padding: 20rpx;
+  height: 100%;
+}
+
+.login-title{
+  margin-top: 80rpx;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.login-tip{
+  font-size: 12px;
+  margin-top: 10rpx;
+  color: #9f9f9f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-tip-phone{
+  margin: 0 10rpx;
+}
+.icon-xiugai{
+  font-size: 14px;
+}
+
+.send-code{
+  font-size: 14px;
+}

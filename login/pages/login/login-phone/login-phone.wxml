@@ -1,0 +1,15 @@
+<!--pages/login/login-phone/login-phone.wxml-->
+<view class="login-phone">
+  <view class="login-title">登录体验更多精彩</view>
+  <view class="login-tip">未注册手机号登录后将自动创建账号</view>
+
+  <view class="login-phone-wrap">
+    <view class="phone-wrap">
+      <text class="phone-prefix">+86</text>
+      <input type="number" placeholder="请输入手机号" maxlength="11" />
+    </view>
+    <text class="iconfont icon-close"></text>
+  </view>
+
+  <button class="login-btn" style="width: 100%;">下一步</button>
+</view>

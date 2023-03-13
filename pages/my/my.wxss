@@ -1,1 +1,80 @@
 /* pages/my/my.wxss */
+.my{
+  width: 100%;
+  min-height: 100%;
+  padding: 20rpx;
+  background-color: #ede9e6;
+}
+.my-container{
+  margin-top: 20rpx;
+  width: calc(100% - 40rpx);
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.user-container{
+  position: relative;
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+  height: 160rpx;
+}
+.user-icon-wrap{
+  background-color: #f7f1f1;
+  text-align: center;
+  line-height: 190rpx;
+  overflow: hidden;
+}
+.user-avatar{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user-image{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.user-icon-wrap .icon-yonghu{
+  color: #f9d9dc;
+  font-size: 110rpx;
+}
+
+.user-login{
+  margin-top: 70rpx;
+  font-size:  20px;
+  font-weight: 700;
+}
+
+.my-list-container{
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 10rpx 40rpx;
+}
+.my-item{
+  width: 25%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rpx 0;
+}
+
+.my-item .iconfont{
+  color: #ff383b;
+  font-size: 60rpx;
+}
+
+.my-text{
+  margin-top: 10rpx;
+  font-size: 12px;
+}
+
