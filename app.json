@@ -5,7 +5,8 @@
     "pages/community/community",
     "pages/podcast/podcast",
     "pages/follow/follow",
-    "pages/daily-recommendation/daily-recommendation"
+    "pages/daily-recommendation/daily-recommendation",
+    "pages/music-player/music-player"
   ],
   "subPackages": [
     {
@@ -18,6 +19,7 @@
       "independent": true
     }
   ],
+  "requiredBackgroundModes": ["audio", "location"],
   "window": {
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",

@@ -1,6 +1,7 @@
 // pages/daily-recommendation/daily-recommendation.js
 
 import { request } from "../../utils/request";
+const app = getApp()
 
 Page({
   /**
@@ -10,6 +11,15 @@ Page({
     recommendSongList:[]
   },
 
+  goPlayer(e){
+    wx.navigateTo({
+      url: '/pages/music-player/music-player',
+    })
+    app.globalData.songs = this.data.recommendSongList
+    app.globalData.songIndex = e.currentTarget.dataset.index
+    // console.log(app.globalData.songs,app.globalData.songIndex);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,7 +27,7 @@ Page({
     const songList = await request({
       url:"/recommend/songs"
     })
-    console.log(songList);
+    // console.log(songList);
     this.setData({
       recommendSongList:songList.data.dailySongs
     })
