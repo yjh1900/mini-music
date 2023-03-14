@@ -2,18 +2,18 @@
 <view class="music-player">
   <view class="music-player-title">
     <text class="music-title">{{song.name}}</text>
-    <text class="music-author">{{song.ar[0].name}}</text>
+    <text class="music-author">{{song.artists[0].name}}</text>
   </view>
-  <image src="../../static/images/player/playing_page_needle.png" mode="widthFix" class="music-needle"/>
+  <image src="../../static/images/player/playing_page_needle.png" mode="widthFix" class="music-needle {{isPlay?'':'music-needle-transition'}}"/>
   <view class="music-img-wrap">
     <image src="../../static/images/player/playing_page_disc.png" mode="widthFix" class="music-disc"/>
-    <image src="{{song.al.picUrl}}" class="music-img"/>
+    <image src="{{song.album.picUrl}}" class="music-img animation-rotate {{isPlay?'':'animation-paused'}}"/>
   </view>
 
   <view class="music-player-wrap">
     <view class="music-time-wrap">
       <text>{{startTimeText}}</text>
-      <view class="music-line-wrap" bindtap="jumpProgress">
+      <view class="music-line-wrap" bindtap="jumpProgress" bindtouchstart="touchstartHandle" bindtouchmove="touchmoveHandle" bindtouchend="touchendHandle">
         <view class="music-active-line" style="width:{{progressWidth}}"></view>
         <view class="music-active-point" style="left:{{progressWidth}}"></view>
       </view>
@@ -21,9 +21,9 @@
     </view>
     <view class="music-btns-wrap">
       <text class="iconfont icon-repeat"></text>
-      <text class="iconfont icon-previous"></text>
-      <text class="iconfont icon-play"></text>
-      <text class="iconfont icon-next"></text>
+      <text class="iconfont icon-previous" bindtap="previousSong"></text>
+      <text class="{{isPlay? 'iconfont icon-pause' : 'iconfont icon-play' }}" bindtap="playOrPause"></text>
+      <text class="iconfont icon-next" bindtap="nextSong"></text>
       <text class="iconfont icon-playlist-music"></text>
     </view>
   </view>

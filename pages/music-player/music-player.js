@@ -15,6 +15,7 @@ Page({
     startTimeText:"00:00",
     endTimeText:"00:00",
     progressWidth:0,
+    isPlay:true
   },
   formatTime(time) {
      /* 使用date将时间戳变为时间点
@@ -24,8 +25,8 @@ Page({
     const date = new Date(time)
     let minite = date.getMinutes()
     let second = date.getSeconds()
-    minite = minite > 10 ? minite : "0" + minite
-    second = second > 10 ? second : "0" + second
+    minite = minite >= 10 ? minite : "0" + minite
+    second = second >= 10 ? second : "0" + second
     return minite + ":" + second
   },
   
@@ -48,10 +49,11 @@ Page({
   },
   jumpProgress(e){
     const persent = (e.detail.x - this.lineLeft) / this.lineWidth
-    this.backgroundAudioManager.seek(persent * this.data.endTime / 1000)
     this.setData({
+      startTime: persent * this.data.endTime,
       progressWidth: persent * 100 + "%"
     })
+    this.backgroundAudioManager.seek(persent * this.data.endTime / 1000)
   },
   /**
    * 生命周期函数--监听页面显示
@@ -61,7 +63,6 @@ Page({
     this.setData({
       song:songs[songIndex]
     })
-
     const playSong = await request({
       url: "/song/url/v1",
       data: {
@@ -83,6 +84,7 @@ Page({
     backgroundAudioManager.title = this.data.song.name
 
     backgroundAudioManager.onTimeUpdate(()=>{
+      if(this.isTouch)return
       // 当前播放时间（毫秒）
       const current = backgroundAudioManager.currentTime * 1000
       this.setData({
@@ -91,8 +93,113 @@ Page({
         progressWidth: this.data.startTime / this.data.endTime * 100 + "%" 
       })
     })
+    backgroundAudioManager.onEnded(()=>{
+        this.nextSong()
+    })
   },
 
+  // 手指按下
+  touchstartHandle(e){
+    const persent = (e.changedTouches[0].clientX - this.lineLeft) / this.lineWidth
+    this.setData({
+      progressWidth : persent * 100 + "%",
+      startTime: persent * this.data.endTime,
+      startTimeText: this.formatTime(this.data.startTime),
+    })
+    this.animate(".music-line-wrap",[
+      {height:"1px"}, {height:"3px"}
+    ], 100)
+    this.animate(".music-active-point",[
+      {height:"14rpx",width:"14rpx"}, {height:"17rpx",width:"17rpx"}
+    ], 100)
+    this.isTouch = true
+  },
+  // 手指按下移动
+  touchmoveHandle(e){
+    const persent = (e.changedTouches[0].clientX - this.lineLeft) / this.lineWidth
+    this.setData({
+      progressWidth : persent * 100 + "%",
+      startTime: persent * this.data.endTime,
+      startTimeText: this.formatTime(this.data.startTime),
+    })
+  },
+  // 手指抬起
+  touchendHandle(e){
+    const persent = (e.changedTouches[0].clientX - this.lineLeft) / this.lineWidth
+    this.setData({
+      progressWidth : persent * 100 + "%",
+      startTime: persent * this.data.endTime
+    })
+    this.backgroundAudioManager.seek(persent * this.data.endTime / 1000)
+    this.isTouch = false
+    this.animate(".music-line-wrap",[
+      {height:"3px"}, {height:"1px"}
+    ], 100)
+    this.animate(".music-active-point",[
+      {height:"17rpx",width:"17rpx"}, {height:"14rpx",width:"14rpx"}
+    ], 100)
+  },
+
+  // 播放暂停
+  playOrPause(){
+    if(this.data.isPlay){
+      this.backgroundAudioManager.pause()
+      this.setData({
+        isPlay:false
+      })
+    }else{
+      this.backgroundAudioManager.play()
+      this.setData({
+        isPlay:true
+      })
+    }
+  },
+  async nextSong(){
+    const { songs, songIndex } = app.globalData
+    app.globalData.songIndex = songIndex === songs.length-1 ? 0 : songIndex + 1
+    console.log(app.globalData.songIndex ,app.globalData.songs);
+    this.setData({
+      song: app.globalData.songs[app.globalData.songIndex],
+    })
+    console.log(app.globalData.songIndex);
+    const playSong = await request({
+      url: "/song/url/v1",
+      data: {
+        id: this.data.song.id,
+        level: 'higher'
+      }
+    })
+    const {time, url} = playSong.data[0]
+    this.setData({
+      playUrl:url,
+      endTime: time,
+      endTimeText: this.formatTime(time)
+    })
+    this.backgroundAudioManager.src = this.data.playUrl
+    this.backgroundAudioManager.title = this.data.song.name
+  },
+  async previousSong(){
+    const { songs, songIndex } = app.globalData
+    app.globalData.songIndex = (songIndex ? songIndex - 1 : songs.length - 1)
+    this.setData({
+      song: songs[app.globalData.songIndex],
+    })
+    const playSong = await request({
+      url: "/song/url/v1",
+      data: {
+        id: this.data.song.id,
+        level: 'higher'
+      }
+    })
+    const {time, url} = playSong.data[0]
+    this.setData({
+      playUrl:url,
+      endTime: time,
+      endTimeText: this.formatTime(time)
+    })
+    this.backgroundAudioManager.src = this.data.playUrl
+    this.backgroundAudioManager.title = this.data.song.name
+  },
 
 
   /**
