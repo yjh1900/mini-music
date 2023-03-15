@@ -47,6 +47,19 @@
   position: relative;
 }
 
+.music-lyric{
+height: calc(100% - 200px);
+margin: 20rpx 0;
+box-sizing: border-box;
+text-align: center;
+line-height: 30px;
+color: #9e928d;
+}
+
+.music-lyric view{
+  height: 40%;
+}
+
 .music-disc{
   width: 550rpx;
 }

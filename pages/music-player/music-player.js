@@ -17,8 +17,12 @@ Page({
     endTimeText: "00:00",
     progressWidth: 0,
     isPlay: true,
-    playMode: app.globalData.playMode
+    playMode: app.globalData.playMode,
+    isShowLyric: true,
+    lyric: [],
+    currentLyricIndex: 0
   },
+
   formatTime(time) {
     /* 使用date将时间戳变为时间点
       new Date(241423)
@@ -63,21 +67,27 @@ Page({
   async onShow() {
     // 根据app数据修改本页数据
     this.setData({
-      playMode:app.globalData.playMode
+      playMode: app.globalData.playMode
     })
     if (app.globalData.playMode === 2) {
       this.setData({
-        songs : app.globalData.randomSongs
+        songs: app.globalData.randomSongs
       })
+
+      // 找到原来歌曲在新数组的index，重新给送Index赋值
+      app.globalData.songIndex = [...app.globalData.randomSongs].findIndex((item) => item.id === app.globalData.songs[app.globalData.songIndex].id)
+
     } else {
       this.setData({
-        songs :app.globalData.songs
+        songs: app.globalData.songs
       })
     }
     const backgroundAudioManager = wx.getBackgroundAudioManager()
     this.backgroundAudioManager = backgroundAudioManager
 
     this.playSongHandle()
+
+
     // const { songs, songIndex } = app.globalData
     // this.setData({
     //   song: songs[songIndex]
@@ -110,6 +120,13 @@ Page({
         startTimeText: this.formatTime(current),
         progressWidth: this.data.startTime / this.data.endTime * 100 + "%"
       })
+      // 查找歌词
+      // if(this.data.lyric[this.data.currentLyricIndex].time> this.data.startTime){
+      //   this.setData({
+      //     currentLyricIndex: currentLyricIndex + 1
+      //   })
+      // }
+      // console.log(this.data.currentLyricIndex);
     })
     // backgroundAudioManager.onEnded(() => {
     //   this.nextSong()
@@ -178,11 +195,21 @@ Page({
     }
   },
 
+  // 处理歌词时间函数
+  handleTime(time) {
+    let m = time.split(":")[0] * 60 * 1000
+    let s = time.split(":")[1].split(".")[0] * 1000
+    // 这里需要 × 1，转换为数值
+    let ms = time.split(":")[1].split(".")[1] * 1
+    time = m + s + ms
+    return time
+  },
+
   // 通过最新下标获取歌曲数据
   // 通过歌曲id请求歌曲url
   // 设置backgroundAudioManager.src, 自动播放新歌曲
   async playSongHandle() {
-    console.log(this.data.songs,app.globalData.songIndex);
+    console.log(this.data.songs, app.globalData.songIndex);
     this.setData({
       song: this.data.songs[app.globalData.songIndex],
     })
@@ -201,6 +228,22 @@ Page({
     })
     this.backgroundAudioManager.src = this.data.playUrl
     this.backgroundAudioManager.title = this.data.song.name
+
+    const lyricRes = await request({
+      url: "/lyric",
+      data: {
+        id: this.data.song.id
+      }
+    })
+    console.log(lyricRes.lrc.lyric, 'lyric');
+    this.setData({
+      lyric: lyricRes.lrc.lyric.split('\n').filter(Boolean).map((item) => {
+        return {
+          time: this.handleTime(item.split(']')[0].substring(1)),
+          text: item.split(']')[1]
+        }
+      })
+    })
     // console.log(songs, 'songs');
 
     // this.setData({
@@ -240,7 +283,7 @@ Page({
     //    点击下一首时从newIndex开始播放，这样就能保证不会出现连着播放相同的歌
     app.globalData.songIndex = songIndex === this.data.songs.length - 1 ? 0 : songIndex + 1
     this.playSongHandle()
-    
+
   },
   // 上一首
   previousSong() {
@@ -256,15 +299,15 @@ Page({
       // 获取当前播放歌曲的下标
       this.setData({
         playMode: 0,
-        songs :app.globalData.songs
+        songs: app.globalData.songs
       })
     }
-    else if (app.globalData.playMode === 1){
+    else if (app.globalData.playMode === 1) {
       app.globalData.playMode = app.globalData.playMode + 1
       app.globalData.randomSongs = [...app.globalData.songs].sort(() => Math.random() - 0.5)
       this.setData({
         playMode: app.globalData.playMode,
-        songs : app.globalData.randomSongs
+        songs: app.globalData.randomSongs
       })
     }
     else {
@@ -277,6 +320,12 @@ Page({
     const index = (app.globalData.playMode === 2 ? app.globalData.randomSongs : app.globalData.songs).findIndex((item) => item.id === this.data.song.id)
     // 将集中状态中心存储的下标数据改为newIndex
     app.globalData.songIndex = index
+  },
+
+  showLyric() {
+    this.setData({
+      isShowLyric: !this.data.isShowLyric
+    })
   },
 
   /**

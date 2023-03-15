@@ -4,11 +4,20 @@
     <text class="music-title">{{song.name}}</text>
     <text class="music-author">{{song.artists[0].name}}</text>
   </view>
+<view wx:if="{{!isShowLyric}}" bindtap="showLyric">
   <image src="../../static/images/player/playing_page_needle.png" mode="widthFix" class="music-needle {{isPlay?'':'music-needle-transition'}}"/>
-  <view class="music-img-wrap">
+  <view class="music-img-wrap" >
     <image src="../../static/images/player/playing_page_disc.png" mode="widthFix" class="music-disc"/>
     <image src="{{song.album.picUrl}}" class="music-img animation-rotate {{isPlay?'':'animation-paused'}}"/>
   </view>
+</view>
+
+<scroll-view wx:if="{{isShowLyric}}" scroll-y show-scrollbar="{{false}}" enhanced class="music-lyric"  bindtap="showLyric">
+<view></view>
+<text wx:for="{{lyric}}" wx:key="index">{{item.text}}
+</text>
+<view></view>
+</scroll-view>
 
   <view class="music-player-wrap">
     <view class="music-time-wrap">
