@@ -87,30 +87,7 @@ Page({
 
     this.playSongHandle()
 
-
-    // const { songs, songIndex } = app.globalData
-    // this.setData({
-    //   song: songs[songIndex]
-    // })
-    // const playSong = await request({
-    //   url: "/song/url/v1",
-    //   data: {
-    //     id: this.data.song.id,
-    //     level: 'higher'
-    //   }
-    // })
-    // const { time, url } = playSong.data[0]
-
-    // this.setData({
-    //   playUrl: url,
-    //   endTime: time,
-    //   endTimeText: this.formatTime(time)
-    // })
-    // const backgroundAudioManager = wx.getBackgroundAudioManager()
-    // this.backgroundAudioManager = backgroundAudioManager
-    // backgroundAudioManager.src = this.data.playUrl
-    // backgroundAudioManager.title = this.data.song.name
-
+    // 播放背景音频更新事件
     backgroundAudioManager.onTimeUpdate(() => {
       if (this.isTouch) return
       // 当前播放时间（毫秒）
@@ -120,8 +97,20 @@ Page({
         startTimeText: this.formatTime(current),
         progressWidth: this.data.startTime / this.data.endTime * 100 + "%"
       })
+      // 找第一个time大于当前startTime的歌词下标，刚好是下一句的index，-1就是当前项目
+      let index = this.data.lyric.findIndex((item)=> item.time > this.data.startTime )
+      if(index!==-1){
+        index--
+      }
+      else{
+        return
+      }
+      this.setData({
+        currentLyricIndex:index
+      })
+      
       // 查找歌词
-      // if(this.data.lyric[this.data.currentLyricIndex].time> this.data.startTime){
+      // if(this.data.lyric[this.data.currentLyricIndex].time > this.data.startTime){
       //   this.setData({
       //     currentLyricIndex: currentLyricIndex + 1
       //   })

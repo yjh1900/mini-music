@@ -12,9 +12,9 @@
   </view>
 </view>
 
-<scroll-view wx:if="{{isShowLyric}}" scroll-y show-scrollbar="{{false}}" enhanced class="music-lyric"  bindtap="showLyric">
+<scroll-view wx:if="{{isShowLyric}}" scroll-y show-scrollbar="{{false}}" enhanced class="music-lyric"  bindtap="showLyric" 	scroll-with-animation	scroll-top="{{currentLyricIndex * 60}}rpx">
 <view></view>
-<text wx:for="{{lyric}}" wx:key="index">{{item.text}}
+<text wx:for="{{lyric}}" wx:key="index" class="{{index === currentLyricIndex ? 'music-lyric-emphasize':''}}">{{item.text}}
 </text>
 <view></view>
 </scroll-view>

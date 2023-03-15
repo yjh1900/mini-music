@@ -48,16 +48,25 @@
 }
 
 .music-lyric{
-height: calc(100% - 200px);
+height: calc(100% - 210px);
 margin: 20rpx 0;
 box-sizing: border-box;
 text-align: center;
 line-height: 30px;
 color: #9e928d;
+font-size: 15px;
+
 }
 
 .music-lyric view{
   height: 40%;
+}
+
+.music-lyric-emphasize{
+  color:#eee;
+  font-size: 16px;
+  text-shadow: 
+  0px 0px 8px #ccc ;
 }
 
 .music-disc{
