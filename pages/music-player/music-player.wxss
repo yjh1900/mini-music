@@ -29,7 +29,7 @@
   top: 140rpx;
   margin-left: -30rpx;
   transform-origin: 12px 12px;
-  transition: 1s transform;
+  transition: 1s transform linear;
   width: 170rpx;
   z-index: 10;
 }

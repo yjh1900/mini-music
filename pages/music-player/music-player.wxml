@@ -20,7 +20,7 @@
       <text>{{endTimeText}}</text>
     </view>
     <view class="music-btns-wrap">
-      <text class="iconfont icon-repeat"></text>
+      <text bindtap="switchMode" class="iconfont icon-{{playMode === 0 ? 'repeat': playMode === 1 ? 'repeatOnce' :'shuffle'}}"></text>
       <text class="iconfont icon-previous" bindtap="previousSong"></text>
       <text class="{{isPlay? 'iconfont icon-pause' : 'iconfont icon-play' }}" bindtap="playOrPause"></text>
       <text class="iconfont icon-next" bindtap="nextSong"></text>
