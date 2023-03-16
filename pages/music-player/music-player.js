@@ -18,7 +18,7 @@ Page({
     progressWidth: 0,
     isPlay: true,
     playMode: app.globalData.playMode,
-    isShowLyric: true,
+    isShowLyric: false,
     lyric: [],
     currentLyricIndex: 0
   },
